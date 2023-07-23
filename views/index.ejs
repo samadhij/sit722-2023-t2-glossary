@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h3> <%= subhead %></h3>
+
+    <table style="border-collapse: collapse; margin: 0 auto; border: 2px solid #333; width:100%">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+            <th style="border: 1px solid #333; padding: 10px;">ID</th>
+            <th style="border: 1px solid #333; padding: 10px;">Term</th>
+            <th style="border: 1px solid #333; padding: 10px;">Description</th>
+            <th style="border: 1px solid #333; padding: 10px;">References</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% table.forEach((tableData) => { %>
+      <tr>
+        <td style="border: 1px solid #333; padding: 10px;">
+          <%= tableData.id %>
+        </td>
+        <td style="border: 1px solid #333; padding: 10px;">
+          <%= tableData.term %>
+        </td>
+        <td style="border: 1px solid #333; padding: 10px; width:40%">
+          <%= tableData.description %>
+        </td>
+        <td style="border: 1px solid #333; padding: 10px;">
+          <%- tableData.references.replace(/\n/g, '<br><br>') %>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+    </table>
+
+  </body>
+</html>
